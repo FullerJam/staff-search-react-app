@@ -1,4 +1,5 @@
 import React from "react";
+import Modal from "react-modal";
 import styled from "styled-components";
 import circleArrowIcon from "../../../../public/icons/circle-arrow.png";
 // import theme from "../../config/theme";
@@ -50,7 +51,7 @@ const StyledAvatar = styled.div`
   img{
     border-radius: 50%;
     position: relative;
-    bottom:-1.5px;
+    bottom:-2px;
   }
 `;
 

@@ -8,19 +8,17 @@ const Button = styled.button`
   background-image: url(${searchIcon});
   background-repeat: no-repeat;
   position: relative;
-  background-size: 20px 20px;
+  background-size: 22px 22px;
   /* bottom: -10px; */
   border: 0;
-  height: 20px;
-  width: 20px;
-  /* top:-10px; */
-  margin-left: -35px;
+  height: 25px;
+  width: 25px;
+  top:8px;
+  margin-left: -33px;
   font-weight: 800;
-  /* &:hover {
-    background-color: palevioletred;
-    color: white;
+  &:hover {
     cursor: pointer;
-  } */
+  }
 `;
 
 const StyledBackground = styled.div`
