@@ -7,11 +7,11 @@ import searchIcon from "../../../../public/icons/search.png";
 const Button = styled.button`
   background-image: url(${searchIcon});
   background-repeat: no-repeat;
-  position:relative;
-  bottom:-10px;
+  position: relative;
+  bottom: -10px;
   border: 0;
-  height:30px;
-  width:30px;
+  height: 30px;
+  width: 30px;
   /* top:-10px; */
   margin-left: -35px;
   font-weight: 800;
@@ -24,6 +24,8 @@ const Button = styled.button`
 
 const StyledBackground = styled.div`
   background-image: url(${bgImg});
+  background-repeat: no-repeat;
+  background-position: center;
   width: 100%;
   height: 50vh;
   display: flex;
@@ -46,6 +48,11 @@ const StyledSearchWrapper = styled.div`
     font-family: helvetica;
     font-weight: 700;
   }
+  input:focus,
+  textarea:focus,
+  select:focus {
+    outline: none;
+  }
 `;
 
 const StyledInputWrapper = styled.div``;
@@ -56,7 +63,7 @@ const StyledInput = styled.input`
   font-size: 1rem;
   font-weight: 700;
   width: 90%;
-  background-color:#EFEFEF;
+  background-color: #efefef;
 `;
 
 function Search(props) {
