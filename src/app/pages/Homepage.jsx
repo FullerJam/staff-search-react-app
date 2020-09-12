@@ -1,44 +1,45 @@
-import React, {useEffect, useState} from 'react';
-import Search from 'Components/Search/Search';
-
+import React, { useEffect, useState } from "react";
+import Search from "Components/Search/Search";
+import Users from "Components/Users/Users";
 
 class Homepage extends React.Component {
-    
-//   const [users, setUsers] = useState([]);
-
-//   useEffect(() => {
-//     async function retrieveRandoms() {
-//       const response = await fetch("https://api.randomuser.me");
-//       const json = await response.json();
-//       const result = data.results[0];
-//       setUsers(...users, result);
-//       if (users <= 9) {
-//         retrieveRandoms();
-//       }
-//     }
-//   }, []);
-    render() {
-        return (
-            <>
-                <Search />
-            </>
-        );
-    }
+  render() {
+    return (
+      <>
+        <Search />
+        <Users />
+      </>
+    );
+  }
 }
 
-// OR 
+// OR
 
 const HomepageUsingHooks = () => {
-    return (
-        <>
-            <Search />
-        </>
-    );
+  const [users, setUsers] = useState([]);
+  const [error, setError] = useState("");
+
+  useEffect(async () => {
+    try {
+      const response = await fetch("https://api.randomuser.me?results=10");
+      const data = await response.json();
+      const result = data.results[0];
+      setUsers(...result);
+    } catch (e) {
+      setError(e);
+    }
+  }, []);
+
+
+  return (
+    <>
+      <Search />
+      <Users users={users} error={error} />
+      {console.log(users.toString())}
+    </>
+  );
 };
 
 export default Homepage;
 
-export { 
-    Homepage, 
-    HomepageUsingHooks
-};
+export { Homepage, HomepageUsingHooks };

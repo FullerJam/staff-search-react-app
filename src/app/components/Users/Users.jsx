@@ -13,7 +13,7 @@ const StyledWrapper = styled.div``;
 
 const StyledUserTile = styled.div`
   min-width: 800px;
-  background-color:red;
+  border: 1px red solid;
   margin:10px;
   padding:10px;
   display:flex;
@@ -25,19 +25,20 @@ const StyledUserTile = styled.div`
 
 const StyledAvatar = styled.div`
   padding:5px;
-  background-color:white;
-  background-image: url("");
+  background-color:grey;
 `;
 
 function Users(props) {
-  //   const { onClick } = props;
+    const { users, errors } = props;
 
   return (
     <React.Fragment>
       <StyledUsersWrapper>
         <StyledWrapper>
           <StyledUserTile>
-            <StyledAvatar />
+            <StyledAvatar>
+              <img alt={"Avatar"}/>
+            </StyledAvatar>
             <p>James</p>
             <p>Fuller</p>
           </StyledUserTile>
