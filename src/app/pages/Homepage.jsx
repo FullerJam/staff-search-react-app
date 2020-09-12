@@ -24,7 +24,8 @@ const HomepageUsingHooks = () => {
         try {
           const response = await fetch("https://api.randomuser.me?results=10");
           const data = await response.json();
-          setUsers(...data.results);
+          console.log(data)
+          setUsers(data.results);
         } catch (e) {
           setError(e);
         }
@@ -35,12 +36,11 @@ const HomepageUsingHooks = () => {
   return (
     <>
       <Search />
-      {console.log(users)}
+      {/* {console.log(users[0])} //just for testing, data pulled through*/}
       <Users users={users} error={error} />
     </>
   );
 };
 
-export default Homepage;
+export default HomepageUsingHooks;
 
-export { Homepage, HomepageUsingHooks };

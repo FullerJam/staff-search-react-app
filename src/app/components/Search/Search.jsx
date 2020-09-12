@@ -8,10 +8,11 @@ const Button = styled.button`
   background-image: url(${searchIcon});
   background-repeat: no-repeat;
   position: relative;
-  bottom: -10px;
+  background-size: 20px 20px;
+  /* bottom: -10px; */
   border: 0;
-  height: 30px;
-  width: 30px;
+  height: 20px;
+  width: 20px;
   /* top:-10px; */
   margin-left: -35px;
   font-weight: 800;
@@ -75,7 +76,6 @@ function Search(props) {
         <StyledSearchWrapper>
           <h1>Find a member of staff</h1>
           <p>Use the search box to get started</p>
-          {console.log("fuck you react")}
           <StyledInputWrapper>
             <StyledInput></StyledInput>
             <Button></Button>
