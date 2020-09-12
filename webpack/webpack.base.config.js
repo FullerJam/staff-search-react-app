@@ -16,7 +16,18 @@ const CONFIG = {
                         presets: ['@babel/preset-react']
                     }
                 }
-            }
+            }, {
+                test: /\.(png|jpg|gif)$/i,
+                use: [
+                    {
+                        loader: 'url-loader',
+                        options: {
+                            limit: false,
+                        },
+                    },
+                ],
+            },
+
         ]
     },
     resolve: {

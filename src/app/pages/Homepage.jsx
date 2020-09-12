@@ -1,11 +1,11 @@
 import React from 'react';
-import Example from 'Components/Example/Example';
+import Search from 'Components/Search/Search';
 
 class Homepage extends React.Component {
     render() {
         return (
             <>
-                <Example />
+                <Search />
             </>
         );
     }
@@ -16,7 +16,7 @@ class Homepage extends React.Component {
 const HomepageUsingHooks = () => {
     return (
         <>
-            <Example />
+            <Search />
         </>
     );
 };
