@@ -19,23 +19,24 @@ const HomepageUsingHooks = () => {
   const [users, setUsers] = useState([]);
   const [error, setError] = useState("");
 
-  useEffect(async () => {
-    try {
-      const response = await fetch("https://api.randomuser.me?results=10");
-      const data = await response.json();
-      const result = data.results[0];
-      setUsers(...result);
-    } catch (e) {
-      setError(e);
-    }
-  }, []);
+  useEffect(() => {
+    (async ()  => {
+        try {
+          const response = await fetch("https://api.randomuser.me?results=10");
+          const data = await response.json();
+          setUsers(...data.results);
+        } catch (e) {
+          setError(e);
+        }
+      })()
+    }, []); 
 
 
   return (
     <>
       <Search />
+      {console.log(users)}
       <Users users={users} error={error} />
-      {console.log(users.toString())}
     </>
   );
 };

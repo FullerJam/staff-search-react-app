@@ -75,6 +75,7 @@ function Search(props) {
         <StyledSearchWrapper>
           <h1>Find a member of staff</h1>
           <p>Use the search box to get started</p>
+          {console.log("fuck you react")}
           <StyledInputWrapper>
             <StyledInput></StyledInput>
             <Button></Button>
