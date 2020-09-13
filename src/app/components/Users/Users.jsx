@@ -108,7 +108,7 @@ function Users(props) {
   const [selectedUser, setSelectedUser] = useState([]);
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [dobObject, setDobObject] = useState({});
-  const { users, filteredUsers, error } = props;
+  const { users, error } = props;
 
   const openModal = (user) => {
     setModalIsOpen(!modalIsOpen);
@@ -167,8 +167,8 @@ function Users(props) {
       </Modal>
       <StyledUsersWrapper>
         <StyledWrapper>
-          {users.map((user) => (
-            <StyledUserTile>
+          {users.map((user, index) => (
+            <StyledUserTile key={index}>
               <UserInfoWrapper>
                 <StyledAvatar
                   src={user.picture.medium || avatarPlaceholder}

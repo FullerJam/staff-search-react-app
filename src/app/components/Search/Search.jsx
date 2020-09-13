@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import PropTypes from "prop-types"
+import React, { useEffect, useState, useRef } from "react";
+import PropTypes from "prop-types";
 import styled from "styled-components";
 import theme from "../../config/theme";
 import bgImg from "../../../../public/images/background.jpg";
@@ -17,16 +17,15 @@ const Button = styled.button`
   border: 0;
   height: 25px;
   width: 25px;
-  top:8px;
+  top: 8px;
   margin-left: -33px;
   font-weight: 800;
   &:hover {
     cursor: pointer;
-  
   }
-  button:focus { 
+  button:focus {
     outline: none; /*doesnt stop outline drawn when clicking :( */
-    }
+  }
 `;
 
 const StyledBackground = styled.div`
@@ -40,8 +39,8 @@ const StyledBackground = styled.div`
   @media (max-width: 380px) {
     background-image: url(${bgImgMobile2});
     height: 40vh;
-    h1{
-      font-size:40px!important;
+    h1 {
+      font-size: 40px !important;
     }
   }
 `;
@@ -68,10 +67,10 @@ const StyledSearchWrapper = styled.div`
     outline: none;
   }
   @media (max-width: 674px) {
-    max-width:380px;
+    max-width: 380px;
   }
   @media (max-width: 449px) {
-    max-width:300px;
+    max-width: 300px;
   }
 `;
 
@@ -93,16 +92,37 @@ const StyledInput = styled.input`
 
 function Search(props) {
   const { users, error } = props;
-  const [filteredUsers, setFilteredUsers] = useState([]);
   const [userInput, setUserInput] = useState("");
+  const [userFeedback, setUserFeedback] = useState(false);
+  const [userResults, setUserResults] = useState([]);
+  // setUserResults(users); // infinite loop
+  console.log(userResults);
   let filteredArray = [];
+  const filterUsers = () => {
+    //
+    setUserFeedback(false);
+    filteredArray = users.filter((user) => {
+    const names = `${user.name.first} ${user.name.last}`  
+      return names.toLowerCase().includes(userInput.toLowerCase());
+    });
+    console.log(filteredArray.length);
+    if (filteredArray.length > 0) {
+      setUserResults(filteredArray);
+    } else {
+      //filtered length is 0, display feedback?
+      setUserFeedback(true);
+      setUserResults(users);
+    }
+    //|| user.name.last.toLowerCase().includes(userInput.toLowerCase())
+  };
 
-const filterUsers = (users, userInput) => {
-  console.log("running")
-  filteredArray = users.filter(user => user.name.first.includes(userInput) || user.name.last.includes(userInput) )
-  console.log(filteredArray)
-  setFilteredUsers(filteredArray)
-};
+  //check if the users array is empty and if it is set user results to original
+  useEffect(() => {
+    if (users) {
+      setUserResults(users);
+    }
+  }, [users])
+
 
   return (
     <React.Fragment>
@@ -110,13 +130,14 @@ const filterUsers = (users, userInput) => {
         <StyledSearchWrapper>
           <h1>Find a member of staff</h1>
           <p>Use the search box to get started</p>
+          {userFeedback && (<h1> I am gay </h1>)}
           <StyledInputWrapper>
-            <StyledInput onChange={setUserInput}/>
-            <Button onClick={() => filterUsers(users)}></Button>
+            <StyledInput onChange={(e) => setUserInput(e.target.value)} />
+            <Button onClick={() => filterUsers()}></Button>
           </StyledInputWrapper>
         </StyledSearchWrapper>
       </StyledBackground>
-      <Users filteredUsers={filteredUsers} users={users} error={error} />
+      <Users users={userResults} error={error} />
     </React.Fragment>
   );
 }
