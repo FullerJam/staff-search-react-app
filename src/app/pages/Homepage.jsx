@@ -20,7 +20,7 @@ const HomepageUsingHooks = () => {
   useEffect(() => {
     (async ()  => {
         try {
-          const response = await fetch("https://api.randomuser.me?resulsts=10&nate=us,gb,fr,de");
+          const response = await fetch("https://api.randomuser.me?results=10&nat=us,gb,fr,de");
           const data = await response.json();
           // console.log(data)
           setUsers(data.results);
