@@ -130,7 +130,7 @@ function Search(props) {
         <StyledSearchWrapper>
           <h1>Find a member of staff</h1>
           <p>Use the search box to get started</p>
-          {userFeedback && (<h1> I am gay </h1>)}
+          {userFeedback && (<h1> </h1>)}
           <StyledInputWrapper>
             <StyledInput onChange={(e) => setUserInput(e.target.value)} />
             <Button onClick={() => filterUsers()}></Button>
