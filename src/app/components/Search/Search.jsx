@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState} from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 import theme from "../../config/theme";
@@ -90,6 +90,7 @@ const StyledInput = styled.input`
   background-color: #efefef;
 `;
 
+// const users = useContext(UsersContext)
 function Search(props) {
   const { users, error } = props;
   const [userInput, setUserInput] = useState("");
@@ -130,11 +131,11 @@ function Search(props) {
         <StyledSearchWrapper>
           <h1>Find a member of staff</h1>
           <p>Use the search box to get started</p>
-          {userFeedback && (<h1> </h1>)}
           <StyledInputWrapper>
             <StyledInput onChange={(e) => setUserInput(e.target.value)} />
             <Button onClick={() => filterUsers()}></Button>
           </StyledInputWrapper>
+          {userFeedback && (<p>Your search returned no results</p>)}
         </StyledSearchWrapper>
       </StyledBackground>
       <Users users={userResults} error={error} />

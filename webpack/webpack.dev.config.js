@@ -2,7 +2,7 @@ const BASE_CONFIG = require('./webpack.base.config');
 const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HTMLWebpackPlugin = require('html-webpack-plugin');
-const merge = require('webpack-merge');
+const { merge } = require("webpack-merge");
 const path = require('path');
 
 const CONFIG = {

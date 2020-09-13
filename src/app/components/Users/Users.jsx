@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import Modal from "react-modal";
 import PropTypes from "prop-types"
 import styled from "styled-components";
@@ -104,11 +104,12 @@ const StyledList = styled.ul`
   }
 `;
 
+// const users = useContext(UsersContext)
 function Users(props) {
   const [selectedUser, setSelectedUser] = useState([]);
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [dobObject, setDobObject] = useState({});
-  const { users, error } = props;
+  const { error, users } = props;
 
   const openModal = (user) => {
     setModalIsOpen(!modalIsOpen);
