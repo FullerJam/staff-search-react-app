@@ -1,8 +1,12 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import PropTypes from "prop-types"
 import styled from "styled-components";
 import theme from "../../config/theme";
 import bgImg from "../../../../public/images/background.jpg";
+import bgImgMobile from "../../../../public/images/background_mobile.png";
+import bgImgMobile2 from "../../../../public/images/background_mobile_2.png";
 import searchIcon from "../../../../public/icons/search.png";
+import Users from "../Users/Users";
 
 const Button = styled.button`
   background-image: url(${searchIcon});
@@ -18,17 +22,28 @@ const Button = styled.button`
   font-weight: 800;
   &:hover {
     cursor: pointer;
+  
   }
+  button:focus { 
+    outline: none; /*doesnt stop outline drawn when clicking :( */
+    }
 `;
 
 const StyledBackground = styled.div`
   background-image: url(${bgImg});
   background-repeat: no-repeat;
-  background-position: center;
+  background-position: 50% 1%;
   width: 100%;
   height: 50vh;
   display: flex;
   justify-content: center;
+  @media (max-width: 380px) {
+    background-image: url(${bgImgMobile2});
+    height: 40vh;
+    h1{
+      font-size:40px!important;
+    }
+  }
 `;
 
 const StyledSearchWrapper = styled.div`
@@ -77,7 +92,17 @@ const StyledInput = styled.input`
 `;
 
 function Search(props) {
-  //   const { onClick } = props;
+  const { users, error } = props;
+  const [filteredUsers, setFilteredUsers] = useState([]);
+  const [userInput, setUserInput] = useState("");
+  let filteredArray = [];
+
+const filterUsers = (users, userInput) => {
+  console.log("running")
+  filteredArray = users.filter(user => user.name.first.includes(userInput) || user.name.last.includes(userInput) )
+  console.log(filteredArray)
+  setFilteredUsers(filteredArray)
+};
 
   return (
     <React.Fragment>
@@ -86,11 +111,12 @@ function Search(props) {
           <h1>Find a member of staff</h1>
           <p>Use the search box to get started</p>
           <StyledInputWrapper>
-            <StyledInput></StyledInput>
-            <Button></Button>
+            <StyledInput onChange={setUserInput}/>
+            <Button onClick={() => filterUsers(users)}></Button>
           </StyledInputWrapper>
         </StyledSearchWrapper>
       </StyledBackground>
+      <Users filteredUsers={filteredUsers} users={users} error={error} />
     </React.Fragment>
   );
 }

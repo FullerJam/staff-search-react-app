@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Modal from "react-modal";
-
+import PropTypes from "prop-types"
 import styled from "styled-components";
 import circleArrowIcon from "../../../../public/icons/circle-arrow.png";
 import avatarPlaceholder from "../../../../public/icons/avatar_placeholder.png";
@@ -26,7 +26,8 @@ const StyledUserTile = styled.div`
   width: 800px;
   border: 1px grey solid;
   border-radius: 5px;
-  margin: 10px;
+  margin-top: 10px;
+  margin-bottom:10px;
   padding: 10px;
   background-color: #f4f4f4;
   p {
@@ -107,7 +108,7 @@ function Users(props) {
   const [selectedUser, setSelectedUser] = useState([]);
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [dobObject, setDobObject] = useState({});
-  const { users, errors } = props;
+  const { users, filteredUsers, error } = props;
 
   const openModal = (user) => {
     setModalIsOpen(!modalIsOpen);
@@ -117,22 +118,25 @@ function Users(props) {
 
   return (
     <React.Fragment>
-      {errors && <StyledError>{errors}</StyledError>}
+      {error && <StyledError>{error.message}</StyledError>}
       <Modal
         isOpen={modalIsOpen}
         onRequestClose={() => setModalIsOpen(false)}
         style={{
           content: {
+            marginTop:"5vh",
             display: "flex",
             alignItems: "center",
             flexDirection: "column",
             justifyContent: "center",
             margin: "0 auto",
             fontFamily: "helvetica",
-            maxHeight:"70%"
+            overflowX: "hidden",
+            maxWidth:"1000px"
           },
           overlay: {
             backgroundColor: "#71090D",
+            overflowX: "hidden"
           },
         }}
       >

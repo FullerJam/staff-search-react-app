@@ -1,13 +1,11 @@
 import React, { useEffect, useState } from "react";
 import Search from "Components/Search/Search";
-import Users from "Components/Users/Users";
 
 class Homepage extends React.Component {
   render() {
     return (
       <>
         <Search />
-        <Users />
       </>
     );
   }
@@ -35,9 +33,9 @@ const HomepageUsingHooks = () => {
 
   return (
     <>
-      <Search />
+      <Search users={users} error={error}/>
       {/* {console.log(users[0])} //just for testing, data pulled through*/}
-      <Users users={users} error={error} />
+      {/* <Users users={users} error={error} /> */}
     </>
   );
 };
