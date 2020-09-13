@@ -52,9 +52,20 @@ const StyledSearchWrapper = styled.div`
   select:focus {
     outline: none;
   }
+  @media (max-width: 674px) {
+    max-width:380px;
+  }
+  @media (max-width: 449px) {
+    max-width:300px;
+  }
 `;
 
-const StyledInputWrapper = styled.div``;
+const StyledInputWrapper = styled.div`
+  display:flex;
+  justify-content:center;
+  margin-left:-5%;
+  padding
+  `;
 
 const StyledInput = styled.input`
   border-radius: 5px;

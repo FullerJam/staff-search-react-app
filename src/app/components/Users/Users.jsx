@@ -4,6 +4,9 @@ import Modal from "react-modal";
 import styled from "styled-components";
 import circleArrowIcon from "../../../../public/icons/circle-arrow.png";
 import avatarPlaceholder from "../../../../public/icons/avatar_placeholder.png";
+import icon1 from "../../../../public/icons/email.png";
+import icon2 from "../../../../public/icons/dob.png";
+import icon3 from "../../../../public/icons/phone.png";
 // import theme from "../../config/theme";
 
 const StyledUsersWrapper = styled.div`
@@ -20,7 +23,7 @@ const StyledUserTile = styled.div`
   padding: 0 50px 0 50px;
   justify-content: space-between;
   align-items: center;
-  min-width: 800px;
+  width: 800px;
   border: 1px grey solid;
   border-radius: 5px;
   margin: 10px;
@@ -29,6 +32,15 @@ const StyledUserTile = styled.div`
   p {
     margin-left: 8px;
     font-family: helvetica;
+  }
+  @media (max-width: 849px) {
+    max-width:530px;
+  }
+  @media (max-width: 617px) {
+    max-width:420px;
+  }
+  @media (max-width: 617px) {
+    max-width:300px;
   }
 `;
 
@@ -67,19 +79,40 @@ const UserInfoWrapper = styled.div`
   align-items: center;
 `;
 
-const StyledList = styled.li`
-  text-decoration:none;
+const StyledList = styled.ul`
+  padding: 0;
+  margin-top: 2%;
+  text-decoration: none;
+  list-style: none;
+  display: flex;
+  justify-content: space-evenly;
+  text-align: center;
+  li {
+    display: flex;
+  }
+  img {
+    height: 20px;
+    padding: 10px;
+  }
+  @media (max-width: 768px) {
+    justify-content: center;
+    flex-direction: column;
+    li {
+      display: block;
+    }
+  }
 `;
 
 function Users(props) {
   const [selectedUser, setSelectedUser] = useState([]);
   const [modalIsOpen, setModalIsOpen] = useState(false);
+  const [dobObject, setDobObject] = useState({});
   const { users, errors } = props;
 
   const openModal = (user) => {
     setModalIsOpen(!modalIsOpen);
     setSelectedUser(user);
-    console.log("selected User " + selectedUser);
+    setDobObject(user.dob);
   };
 
   return (
@@ -94,6 +127,9 @@ function Users(props) {
             alignItems: "center",
             flexDirection: "column",
             justifyContent: "center",
+            margin: "0 auto",
+            fontFamily: "helvetica",
+            maxHeight:"70%"
           },
           overlay: {
             backgroundColor: "#71090D",
@@ -102,12 +138,28 @@ function Users(props) {
       >
         <StyledAvatar2
           src={modalIsOpen && selectedUser.picture.large}
-          alt="userAvatar"
+          alt="large_user_avatar"
         />
         <p>
-          {modalIsOpen &&
-            selectedUser.name.first + " " + selectedUser.name.last}
+          <h4>
+            {modalIsOpen &&
+              selectedUser.name.first + " " + selectedUser.name.last}
+          </h4>
         </p>
+        <StyledList>
+          <li>
+            <img src={icon1} alt="Email Icon" />
+            <p>{selectedUser.email}</p>
+          </li>
+          <li>
+            <img src={icon2} alt="Birthday Icon" />
+            <p>{dobObject.date}</p>
+          </li>
+          <li>
+            <img src={icon3} alt="Phone Icon" />
+            <p>{selectedUser.phone}</p>
+          </li>
+        </StyledList>
       </Modal>
       <StyledUsersWrapper>
         <StyledWrapper>
