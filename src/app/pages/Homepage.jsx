@@ -1,8 +1,12 @@
 import React, { useEffect, useState } from "react";
 import Search from "Components/Search/Search";
-// import UsersContext from "../config/users-context";
+import useUserStore from "../config/useUserStore";
 
-// OR
+const users = () => ({
+  userStore: useUserStore()
+})
+
+const userProviderContext = createContext();
 
 const HomepageUsingHooks = () => {
   const [users, setUsers] = useState([]);
@@ -25,9 +29,9 @@ const HomepageUsingHooks = () => {
 
   return (
     <>
-      {/* <UsersContext.Provider value={users}> */}
-        <Search error={error} users={users} />
-      {/* </UsersContext.Provider> */}
+      <userProviderContext.Provider value={users()}>
+        <Search error={error} />
+      </userProviderContext.Provider>
     </>
   );
 };

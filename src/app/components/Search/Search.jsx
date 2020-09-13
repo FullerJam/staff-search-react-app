@@ -1,4 +1,4 @@
-import React, { useEffect, useState} from "react";
+import React, { useEffect, useState, useContext} from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 import theme from "../../config/theme";
@@ -91,8 +91,12 @@ const StyledInput = styled.input`
 `;
 
 // const users = useContext(UsersContext)
+const userStore = () => {
+  return useContext(StoresProviderContext);
+};
 function Search(props) {
-  const { users, error } = props;
+  const { error } = props;
+  const { users } = useStores().auth;
   const [userInput, setUserInput] = useState("");
   const [userFeedback, setUserFeedback] = useState(false);
   const [userResults, setUserResults] = useState([]);
@@ -117,7 +121,7 @@ function Search(props) {
     //|| user.name.last.toLowerCase().includes(userInput.toLowerCase())
   };
 
-  //check if the users array is empty and if it is set user results to original
+  //check if the users array is empty on change and if it is set user results to original
   useEffect(() => {
     if (users) {
       setUserResults(users);
