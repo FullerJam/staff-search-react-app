@@ -14,28 +14,24 @@ function Search(props) {
   const [userInput, setUserInput] = useState("");
   const [userFeedback, setUserFeedback] = useState(false);
   const [userResults, setUserResults] = useState([]);
-  // setUserResults(users); // infinite loop
-  // console.log(userResults);
   let filteredArray = [];
+
   const filterUsers = () => {
-    //
+
     setUserFeedback(false);
     filteredArray = users.filter((user) => {
       const fullName = `${user.name.first} ${user.name.last}`;
       return fullName.toLowerCase().includes(userInput.toLowerCase());
     });
-    // console.log(filteredArray.length);
+ 
     if (filteredArray.length > 0) {
       setUserResults(filteredArray);
     } else {
-      //filtered length is 0, display feedback?
       setUserFeedback(true);
       setUserResults(users);
     }
-    //|| user.name.last.toLowerCase().includes(userInput.toLowerCase())
   };
 
-  //check if the users array is empty and if it is set user results to original
   useEffect(() => {
     if (users) {
       setUserResults(users);

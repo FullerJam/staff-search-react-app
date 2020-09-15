@@ -1,19 +1,14 @@
 import styled from 'styled-components';
-import theme from "../../config/theme";
+// import theme from "../../config/theme";
 import bgImg from "../../../../public/images/background.jpg";
 import bgImgMobile2 from "../../../../public/images/background_mobile_2.png";
 import searchIcon from "../../../../public/icons/search.png";
-
-// export const Example = styled.div`
-//     background:grey;
-// `;
 
 export const Button = styled.button`
   background-image: url(${searchIcon});
   background-repeat: no-repeat;
   position: relative;
   background-size: 22px 22px;
-  /* bottom: -10px; */
   border: 0;
   height: 25px;
   width: 25px;
@@ -24,7 +19,7 @@ export const Button = styled.button`
     cursor: pointer;
   }
   button:focus {
-    outline: none; /*doesnt stop outline drawn when clicking :( */
+    outline: none; 
   }
 `;
 
