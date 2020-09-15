@@ -29,7 +29,7 @@ const CONFIG = {
     new CopyWebpackPlugin([
       {
         from: path.resolve(__dirname, "../public"),
-        to: path.resolve(__dirname, "../dist/static"),
+        to: path.resolve(__dirname, "../dist/static")
       },
     ]),
   ],

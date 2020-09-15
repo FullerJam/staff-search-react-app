@@ -1,6 +1,11 @@
-import {createContext} from "react"
-
-const UsersContext = createContext(null)
-
-export default UsersContext
-
+const useUserStore = () => {
+    const [user, setUser] = useState('');
+  
+  
+    return {
+      setUser,
+      user
+    };
+  };
+  
+  export default useUserStore;

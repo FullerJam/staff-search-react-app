@@ -1,8 +1,5 @@
 import React, { useEffect, useState } from "react";
 import Search from "Components/Search/Search";
-// import UsersContext from "../config/users-context";
-
-// OR
 
 const HomepageUsingHooks = () => {
   const [users, setUsers] = useState([]);
@@ -25,9 +22,7 @@ const HomepageUsingHooks = () => {
 
   return (
     <>
-      {/* <UsersContext.Provider value={users}> */}
-        <Search error={error} users={users} />
-      {/* </UsersContext.Provider> */}
+      <Search error={error} users={users} />
     </>
   );
 };
