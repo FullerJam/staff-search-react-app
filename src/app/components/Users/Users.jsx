@@ -83,7 +83,7 @@ function Users(props) {
           <StyledWrapper>
             {users.map((user, index) => (
               <motion.div whileHover={{ scale: 1.02 }}>
-                <StyledUserTile key={index}>
+                <StyledUserTile key={index} onClick={() => openModal(user)}>
                   <UserInfoWrapper key="1">
                     <StyledAvatarBorder
                       src={user.picture.medium || avatarPlaceholder}

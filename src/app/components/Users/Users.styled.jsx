@@ -23,6 +23,7 @@ export const StyledUserTile = styled.div`
   margin-bottom: 10px;
   padding: 10px;
   background-color: #f4f4f4;
+  cursor:pointer;
   p {
     margin-left: 8px;
     font-family: helvetica;
