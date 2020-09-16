@@ -11,6 +11,8 @@ https://www.framer.com/motion/
 
 
 
+
+
 **Requirements:**
 
 - On page load, 10 random profiles showing their avatar and name should be listed.
