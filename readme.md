@@ -1,6 +1,14 @@
 # Staff search react application
 
-Hosted [here](https://priceless-lamarr-9fe25e.netlify.app/)
+A mock staff search set of components built using hooks and the random user api [randomuser.me](https://randomuser.me/) to supply mock data. 
+
+Demo hosted [here](https://priceless-lamarr-9fe25e.netlify.app/)
+
+https://reactcommunity.org/react-modal/
+
+https://www.framer.com/motion/
+
+
 
 
 **Requirements:**
