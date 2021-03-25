@@ -20,7 +20,7 @@ import {
 } from "./Users.styled";
 
 if (process.env.NODE_ENV !== "test") {
-  Modal.setAppElement("#app");
+  Modal.setAppElement("#app"); // https://github.com/reactjs/react-modal/issues/632
 }
 function Users(props) {
   const [selectedUser, setSelectedUser] = useState([]);
