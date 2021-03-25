@@ -2,46 +2,29 @@ import styled from "styled-components";
 // import theme from "../../config/theme"; // couldnt use in exported styles, receiving undefined
 import circleArrowIcon from "../../../../public/icons/circle-arrow.png";
 
-export const StyledUsersWrapper = styled.div`
+export const StyledWrapper = styled.div`
   width: 100%;
   min-height: 50vh;
   display: flex;
   justify-content: center;
+  /* border:1px red dotted; */
+  margin-top:20px;
 `;
 
-export const StyledWrapper = styled.div``;
-
-export const StyledUserTile = styled.div`
-  display: flex;
-  padding: 0 50px 0 50px;
-  justify-content: space-between;
-  align-items: center;
-  width: 800px;
-  border: 1px grey solid;
-  border-radius: 5px;
-  margin-top: 10px;
-  margin-bottom: 10px;
-  padding: 10px;
-  background-color: #f4f4f4;
-  cursor:pointer;
-  p {
-    margin-left: 8px;
-    font-family: helvetica;
-  }
-  @media (max-width: 849px) {
-    max-width: 530px;
-  }
-  @media (max-width: 617px) {
-    max-width: 420px;
-  }
-  @media (max-width: 617px) {
-    max-width: 300px;
+export const StyledUsersWrapper = styled.div`
+  width:100%;
+  padding:0 80px;
+  /* border:1px blue dotted; */
+  @media (max-width: 768px) {
+    /* padding:15px; */
   }
 `;
+
 
 export const Button = styled.button`
   background-image: url(${circleArrowIcon});
   background-repeat: no-repeat;
+  background-size:cover;
   border-radius: 50%;
   border: 0;
   height: 50px;
@@ -69,10 +52,38 @@ export const StyledError = styled.p`
   font-size: 25px;
 `;
 
-export const UserInfoWrapper = styled.div`
+export const StyledUserInfoWrapper = styled.div`
   display: flex;
   align-items: center;
+  p{
+    font-family: helvetica;
+    font-size:16px;
+    margin-left:10px;
+  }
+  img{
+
+  }
 `;
+
+// export const modalContentStyle = {
+//   content: {
+//     content: {
+//       marginTop: "5vh",
+//       display: "flex",
+//       alignItems: "center",
+//       flexDirection: "column",
+//       justifyContent: "center",
+//       margin: "0 auto",
+//       fontFamily: "helvetica",
+//       overflowX: "hidden",
+//       maxWidth: "1000px",
+//     },
+//     overlay: {
+//       backgroundColor: "rgba(0, 0, 0, 0.3)",
+//       overflowX: "hidden",
+//     },
+//   },
+// };
 
 export const StyledList = styled.ul`
   padding: 0;
@@ -86,7 +97,7 @@ export const StyledList = styled.ul`
     display: flex;
     word-wrap: break-word;
   }
-  p{
+  p {
     word-wrap: break-word;
   }
   img {

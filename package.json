@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "homepage":"https://FullerJam.gihub.io/staff-search-react-component",
+  "homepage": "https://FullerJam.gihub.io/staff-search-react-component",
   "scripts": {
     "start": "webpack-dev-server --config ./webpack/webpack.dev.config.js",
     "build": "webpack --config ./webpack/webpack.prod.config.js",
@@ -44,7 +44,7 @@
     "babel-eslint": "^10.1.0",
     "babel-loader": "^8.1.0",
     "babel-plugin-webpack-alias": "^2.1.2",
-    "browser-sync": "^2.26.12",
+    "browser-sync": "^2.26.14",
     "browser-sync-webpack-plugin": "^2.2.2",
     "copy-webpack-plugin": "^5.1.2",
     "cross-env": "^6.0.3",
