@@ -1,29 +1,25 @@
 import { hot } from "react-hot-loader/root";
-import React, { useEffect, useState,} from "react";
+import React from "react";
 import Router from "Routing/Router";
 import UserContext from "./config/userContext";
-import ErrorContext from "./config/userContext";
+import ErrorContext from "./config/ErrorContext";
+import Loader from "./components/Loader/Loader"
+import useRandomuser from "./services/useRandomUser"
 
 const AppRoot = () => {
-  const [users, setUsers] = useState([]);
-  const [error, setError] = useState("");
-  useEffect(() => {
-    (async () => {
-      try {
-        const response = await fetch(
-          "https://api.randomuser.me?results=10&nat=us,gb,fr,de"
-        );
-        const data = await response.json();
-        // console.log(data)
-        setUsers(data.results);
-      } catch (e) {
-        setError(e);
-      }
-    })();
-  }, []);
+
+  const {
+    errors,
+    users,
+    loading,
+  } = useRandomuser();
+
+  if (loading) {
+    return <Loader />;
+  }
 
   return (
-      <ErrorContext.Provider value={error}>
+      <ErrorContext.Provider value={errors}>
         <UserContext.Provider value={users}>
           <Router />
         </UserContext.Provider>

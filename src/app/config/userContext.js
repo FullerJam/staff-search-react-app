@@ -1,8 +1,6 @@
 import { createContext } from 'react';
 
+const UserContext = createContext();
 
-const ErrorContext = createContext();
-
-
-export default ErrorContext;
+export default UserContext;
 

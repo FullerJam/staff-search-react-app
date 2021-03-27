@@ -11,17 +11,17 @@ import {
   Button,
   StyledUsersWrapper,
   StyledWrapper,
-  StyledUserTile,
   StyledAvatarBorder,
   StyledAvatarBorder2,
   StyledError,
   StyledUserInfoWrapper,
   StyledList,
+  modalContentStyle,
 } from "./Users.styled";
 
 if (process.env.NODE_ENV !== "test") {
   Modal.setAppElement("#app"); // https://github.com/reactjs/react-modal/issues/632
-} //set app element for accessability 
+} //set app element for accessability
 function Users(props) {
   const [selectedUser, setSelectedUser] = useState([]);
   const [modalIsOpen, setModalIsOpen] = useState(false);
@@ -41,26 +41,10 @@ function Users(props) {
         id="root"
         isOpen={modalIsOpen}
         onRequestClose={() => setModalIsOpen(false)}
-        style={{
-          content: {
-            marginTop: "5vh",
-            display: "flex",
-            alignItems: "center",
-            flexDirection: "column",
-            justifyContent: "center",
-            margin: "0 auto",
-            fontFamily: "helvetica",
-            overflowX: "hidden",
-            maxWidth: "1000px",
-          },
-          overlay: {
-            backgroundColor: "rgba(0, 0, 0, 0.3)",
-            overflowX: "hidden",
-          },
-        }}
+        style={modalContentStyle}
       >
         <StyledAvatarBorder2
-          src={modalIsOpen ? selectedUser.picture.large : undefined} // replace with ternary operator as && was throwing error when closing modal as src set to "false"
+          src={modalIsOpen ? selectedUser.picture.large : undefined} // replaced with ternary operator as && was throwing error when closing modal as src set to "false"
           alt="large_user_avatar"
         />
         <h4>
@@ -69,7 +53,9 @@ function Users(props) {
         </h4>
         <StyledList>
           <li>
-            <img src={icon1} alt="Email Icon" />
+            <div>
+              <img src={icon1} alt="Email Icon" />
+            </div>
             <p>{selectedUser.email}</p>
           </li>
           <li>
@@ -89,13 +75,17 @@ function Users(props) {
               <div onClick={() => openModal(user)}>
                 <UserTile>
                   <StyledUserInfoWrapper>
-                    <StyledAvatarBorder
-                      src={user.picture.medium || avatarPlaceholder}
-                      alt="userAvatar"
-                    />
-                    <p>
-                      {user.name.first}&nbsp;{user.name.last}
-                    </p>
+                    <div>
+                      <StyledAvatarBorder
+                        src={user.picture.medium || avatarPlaceholder}
+                        alt="userAvatar"
+                      />
+                    </div>
+                    <div>
+                      <p>
+                        {user.name.first}&nbsp;{user.name.last}
+                      </p>
+                    </div>
                   </StyledUserInfoWrapper>
                   <Button
                     id={user.login.uuid}
@@ -111,12 +101,12 @@ function Users(props) {
   );
 }
 Users.propTypes = {
-  error: PropTypes.string,
+  error: PropTypes.array,
   users: PropTypes.array,
 };
 
 Users.defaultProps = {
-  error: "",
+  error: [],
   users: [],
 };
 

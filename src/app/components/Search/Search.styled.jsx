@@ -26,7 +26,8 @@ export const Button = styled.button`
 export const StyledBackground = styled.div`
 background-image: url(${bgImg});
 background-repeat: no-repeat;
-background-position: 50% 1%;
+background-position: center center;
+background-size:cover;
 width: 100%;
 height: 50vh;
 display: flex;
@@ -63,6 +64,7 @@ select:focus {
 }
 @media (max-width: 674px) {
   max-width: 380px;
+  padding:0 50px;
 }
 @media (max-width: 449px) {
   max-width: 300px;
@@ -73,7 +75,6 @@ export const StyledInputWrapper = styled.div`
 display:flex;
 justify-content:center;
 margin-left:-5%;
-padding
 `;
 
 export const StyledInput = styled.input`

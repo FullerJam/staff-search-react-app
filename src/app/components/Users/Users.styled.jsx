@@ -4,31 +4,31 @@ import circleArrowIcon from "../../../../public/icons/circle-arrow.png";
 
 export const StyledWrapper = styled.div`
   width: 100%;
-  min-height: 50vh;
   display: flex;
   justify-content: center;
-  /* border:1px red dotted; */
-  margin-top:20px;
+  margin-top: 20px;
 `;
 
 export const StyledUsersWrapper = styled.div`
-  width:100%;
-  padding:0 80px;
-  /* border:1px blue dotted; */
+  display: flex;
+  flex-direction: column;
+  padding: 0 50px;
+  margin: 0 auto;
+  max-width: 800px;
+  width: 100%;
   @media (max-width: 768px) {
     /* padding:15px; */
   }
 `;
 
-
 export const Button = styled.button`
   background-image: url(${circleArrowIcon});
   background-repeat: no-repeat;
-  background-size:cover;
   border-radius: 50%;
   border: 0;
   height: 50px;
   width: 49px;
+  padding-right:38px;
   &:hover {
     cursor: pointer;
   }
@@ -54,36 +54,52 @@ export const StyledError = styled.p`
 
 export const StyledUserInfoWrapper = styled.div`
   display: flex;
-  align-items: center;
-  p{
+  max-width: 400px;
+  width: 100%;
+  p {
     font-family: helvetica;
-    font-size:16px;
-    margin-left:10px;
+    font-size: 16px;
+    margin-left: 10px;
+    /* word-break: break-word; */
   }
-  img{
-
+  img {
+  }
+  div:nth-of-type(2) {
+    display: flex;
+    align-items: center;
+  }
+  @media (max-width: 400px) {
+    display: block;
+    div:nth-of-type(2) {
+      
+      p{
+        margin:0px;
+      }
+    }
   }
 `;
 
-// export const modalContentStyle = {
-//   content: {
-//     content: {
-//       marginTop: "5vh",
-//       display: "flex",
-//       alignItems: "center",
-//       flexDirection: "column",
-//       justifyContent: "center",
-//       margin: "0 auto",
-//       fontFamily: "helvetica",
-//       overflowX: "hidden",
-//       maxWidth: "1000px",
-//     },
-//     overlay: {
-//       backgroundColor: "rgba(0, 0, 0, 0.3)",
-//       overflowX: "hidden",
-//     },
-//   },
-// };
+export const modalContentStyle = {
+  content: {
+    padding: "0px",
+    display: "flex",
+    alignItems: "center",
+    flexDirection: "column",
+    justifyContent: "center",
+    margin: "0 auto",
+    fontFamily: "helvetica",
+    overflowX: "hidden",
+    maxWidth: "1000px",
+    top: "20px",
+    left: "20px",
+    right: "20px",
+    bottom: "20px",
+  },
+  overlay: {
+    backgroundColor: "rgba(0, 0, 0, 0.3)",
+    overflowX: "hidden",
+  },
+};
 
 export const StyledList = styled.ul`
   padding: 0;
