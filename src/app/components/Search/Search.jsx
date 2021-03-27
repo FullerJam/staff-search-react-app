@@ -12,22 +12,21 @@ import {
 } from "./Search.styled";
 
 function Search() {
-  const error = useContext(ErrorContext)
+  const error = useContext(ErrorContext);
   const users = useContext(UserContext);
-  
+
   const [userInput, setUserInput] = useState("");
   const [userFeedback, setUserFeedback] = useState(false);
   const [userResults, setUserResults] = useState([]);
   let filteredArray = [];
 
   const filterUsers = () => {
-
     setUserFeedback(false);
     filteredArray = users.filter((user) => {
       const fullName = `${user.name.first} ${user.name.last}`;
       return fullName.toLowerCase().includes(userInput.toLowerCase());
     });
- 
+
     if (filteredArray.length > 0) {
       setUserResults(filteredArray);
     } else {
@@ -44,34 +43,35 @@ function Search() {
 
   return (
     <React.Fragment>
-      <StyledBackground>
-        <StyledSearchWrapper>
-          <h1>Find a member of staff</h1>
-          <p>Use the search box to get started</p>
-          <StyledInputWrapper>
-            <StyledInput
-              onChange={(e) => setUserInput(e.target.value)}
-              onKeyPress={(e) => {
-                if (e.key == "Enter") {
-                  filterUsers();
-                }
-              }}
-            />
-            <Button onClick={() => filterUsers()}></Button>
-          </StyledInputWrapper>
-          {userFeedback && <p>Your search returned no results</p>}
-        </StyledSearchWrapper>
-      </StyledBackground>
-      <Users users={userResults} error={error} />
+      <header>
+        <StyledBackground>
+          <StyledSearchWrapper>
+            <h1>Find a member of staff</h1>
+            <p>Use the search box to get started</p>
+            <StyledInputWrapper>
+              <StyledInput
+                onChange={(e) => setUserInput(e.target.value)}
+                onKeyPress={(e) => {if (e.key == "Enter") {filterUsers();}}}
+                aria-label="Search for a member of staff"
+              />
+              <Button onClick={() => filterUsers()} aria-label="Search"></Button>
+            </StyledInputWrapper>
+            {userFeedback && <p>Your search returned no results</p>}
+          </StyledSearchWrapper>
+        </StyledBackground>
+      </header>
+      <main>
+        <Users users={userResults} error={error} />
+      </main>
     </React.Fragment>
   );
 }
 Search.propTypes = {
-  error: PropTypes.string,
+  error: PropTypes.array,
   users: PropTypes.array,
 };
 Search.defaultProps = {
-  error: "",
+  error: [],
   users: [],
 };
 

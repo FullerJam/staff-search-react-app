@@ -75,6 +75,9 @@ export const StyledInputWrapper = styled.div`
 display:flex;
 justify-content:center;
 margin-left:-5%;
+label{
+  /* display:none; */
+}
 `;
 
 export const StyledInput = styled.input`

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import Modal from "react-modal";
+import ModalComponent from "../Modal/ModalComponent";
 import PropTypes from "prop-types";
 import UserTile from "../UserTile/UserTile";
 import avatarPlaceholder from "../../../../public/icons/avatar_placeholder.png";
@@ -19,9 +19,7 @@ import {
   modalContentStyle,
 } from "./Users.styled";
 
-if (process.env.NODE_ENV !== "test") {
-  Modal.setAppElement("#app"); // https://github.com/reactjs/react-modal/issues/632
-} //set app element for accessability
+
 function Users(props) {
   const [selectedUser, setSelectedUser] = useState([]);
   const [modalIsOpen, setModalIsOpen] = useState(false);
@@ -37,8 +35,7 @@ function Users(props) {
   return (
     <React.Fragment>
       {error && <StyledError>{error.message}</StyledError>}
-      <Modal
-        id="root"
+      <ModalComponent
         isOpen={modalIsOpen}
         onRequestClose={() => setModalIsOpen(false)}
         style={modalContentStyle}
@@ -67,7 +64,7 @@ function Users(props) {
             <p>{selectedUser.phone}</p>
           </li>
         </StyledList>
-      </Modal>
+      </ModalComponent>
       <StyledWrapper>
         <StyledUsersWrapper>
           {users.map((user, index) => (
@@ -89,7 +86,7 @@ function Users(props) {
                   </StyledUserInfoWrapper>
                   <Button
                     id={user.login.uuid}
-                    onClick={() => openModal(user)}
+                    onClick={() => openModal(user)} aria-label="Further details" alt="button img" role="button"
                   />
                 </UserTile>
               </div>
