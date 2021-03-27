@@ -21,7 +21,7 @@ import {
 
 if (process.env.NODE_ENV !== "test") {
   Modal.setAppElement("#app"); // https://github.com/reactjs/react-modal/issues/632
-}
+} //set app element for accessability 
 function Users(props) {
   const [selectedUser, setSelectedUser] = useState([]);
   const [modalIsOpen, setModalIsOpen] = useState(false);

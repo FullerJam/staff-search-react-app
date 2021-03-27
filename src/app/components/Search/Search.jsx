@@ -1,6 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import PropTypes from "prop-types";
 import Users from "../Users/Users";
+import UserContext from "../../config/userContext";
+import ErrorContext from "../../config/userContext";
+
 import {
   Button,
   StyledBackground,
@@ -9,8 +12,10 @@ import {
   StyledInput,
 } from "./Search.styled";
 
-function Search(props) {
-  const { error, users } = props;
+function Search() {
+  const error = useContext(ErrorContext)
+  const users = useContext(UserContext);
+  
   const [userInput, setUserInput] = useState("");
   const [userFeedback, setUserFeedback] = useState(false);
   const [userResults, setUserResults] = useState([]);
