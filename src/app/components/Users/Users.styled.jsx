@@ -16,8 +16,8 @@ export const StyledUsersWrapper = styled.div`
   margin: 0 auto;
   max-width: 800px;
   width: 100%;
-  @media (max-width: 768px) {
-    /* padding:15px; */
+  @media (max-width: 680px) {
+    padding:25px;
   }
 `;
 

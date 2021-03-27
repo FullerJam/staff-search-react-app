@@ -5,7 +5,6 @@ export const Tile = styled.div`
   justify-content: space-between;
   align-items: center;
   max-width: 1000px;
-  width: 100%;
   margin:5px 0;
   padding: 10px;
   cursor: pointer;

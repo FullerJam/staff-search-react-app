@@ -9,7 +9,7 @@ import {
   StyledSearchWrapper,
   StyledInputWrapper,
   StyledInput,
-} from "./Search.styled";
+} from "./SearchStaff.styled";
 
 function Search() {
   const error = useContext(ErrorContext);

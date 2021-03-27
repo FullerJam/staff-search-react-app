@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 // import theme from "../../config/theme";
 import bgImg from "../../../../public/images/background.jpg";
-import bgImgMobile2 from "../../../../public/images/background_mobile_2.png";
 import searchIcon from "../../../../public/icons/search.png";
 
 export const Button = styled.button`
@@ -32,11 +31,16 @@ width: 100%;
 height: 50vh;
 display: flex;
 justify-content: center;
-@media (max-width: 380px) {
-  background-image: url(${bgImgMobile2});
+@media (max-width: 580px) {
   height: 40vh;
   h1 {
-    font-size: 40px !important;
+    font-size: 35px !important;
+  }
+}
+@media (max-width: 380px) {
+  height: 60vh;
+  h1 {
+    font-size: 35px !important;
   }
 }
 `;
@@ -62,22 +66,17 @@ textarea:focus,
 select:focus {
   outline: none;
 }
-@media (max-width: 674px) {
+@media (max-width: 680px) {
   max-width: 380px;
-  padding:0 50px;
+  padding:0 25px;
 }
-@media (max-width: 449px) {
-  max-width: 300px;
-}
+
 `;
 
 export const StyledInputWrapper = styled.div`
 display:flex;
 justify-content:center;
-margin-left:-5%;
-label{
-  /* display:none; */
-}
+margin-left:-4.2%;
 `;
 
 export const StyledInput = styled.input`

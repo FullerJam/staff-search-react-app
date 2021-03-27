@@ -1,14 +1,8 @@
-import React, { useContext } from "react";
-import Search from "Components/Search/Search";
-import UserContext from "../config/userContext";
-import ErrorContext from "../config/userContext";
+import React from "react";
+import SearchStaff from "App/components/Search/SearchStaff";
 
 const HomepageUsingHooks = () => {
-  const users = useContext(UserContext);
-  const errors = useContext(ErrorContext);
-
-  return <Search users={users} errors={errors}/>
-  
+  return <SearchStaff/>
 };
 
 export default HomepageUsingHooks;
