@@ -56,8 +56,8 @@ export const StyledUserInfoWrapper = styled.div`
   max-width: 400px;
   width: 100%;
   p {
-    font-family: helvetica;
-    font-size: 16px;
+    font-family: ${({ theme }) => theme.typography.font.fontFamily};
+    font-size: ${({ theme }) => theme.typography.p.fontSize};
     margin-left: 10px;
     /* word-break: break-word; */
   }

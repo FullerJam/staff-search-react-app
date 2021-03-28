@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import theme from "../../config/globalStyle";
 import bgImg from "../../../../public/images/background.jpg";
 import searchIcon from "../../../../public/icons/search.png";
 
@@ -32,14 +31,11 @@ height: 50vh;
 @media (max-width: 580px) {
   height: 40vh;
   h1 {
-    font-size: 35px !important;
+    font-size: ${({ theme }) => theme.typography.h1};
   }
 }
 @media (max-width: 380px) {
   height: 60vh;
-  h1 {
-    font-size: 35px !important;
-  }
 }
 `;
 
@@ -52,19 +48,19 @@ height:100%;
 `;
 
 export const StyledSearchWrapper = styled.div`
-color: #f4f4f4;
+color: ${({ theme }) => theme.colors.offWhite};;
 display: flex;
 justify-content: center;
 flex-direction: column;
 max-width: 600px;
 h1 {
   font-size: 4rem;
-  font-family: helvetica;
+  font-family: ${({ theme }) => theme.typography.font.fontFamily};
   margin-top: 0;
 }
 p {
   font-size: 1rem;
-  font-family: helvetica;
+  font-family: ${({ theme }) => theme.typography.font.fontFamily};
   font-weight: 700;
 }
 input:focus,
@@ -89,5 +85,5 @@ padding: 10px;
 font-size: 1rem;
 font-weight: 700;
 width: 90%;
-background-color: #efefef;
+background-color: ${({ theme }) => theme.colors.offWhiteTwo};;
 `;

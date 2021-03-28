@@ -1,6 +1,6 @@
 # Staff search react application
 
-![Staff search desktop image preview](/staff_capture.webp)
+![Staff search desktop image preview](https://i.ibb.co/D5fdJYV/staff-capture.png)
 
 A mock staff search set of components built using hooks and the random user api [randomuser.me](https://randomuser.me/) to supply mock data. 
 
@@ -35,5 +35,5 @@ A very performant alternative to Moment.js for date formating
 ###[Styled Components](https://styled-components.com/)
 An excellent styling solution for component driven development, providing localised & global themes that can be adapted based on props.
 
-![Google Lighthouse report preview](https://ibb.co/nL3zwSG)
+![Google Lighthouse report preview](https://i.ibb.co/QK8rJGg/Lighthouse-report.png)
 [Full Lighthouse report here](https://drive.google.com/file/d/1zq5-QX4Rea_m8nqfLkn8SIpWmKpW6nAk/view?usp=sharing)
