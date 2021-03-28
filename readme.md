@@ -26,7 +26,7 @@ This used to display further user information once an individual user had been s
 An animation library for react with unlimited potential, I've used this for simple hover effects within the User component on each tile.
 Below is animated example of the affect achieved.
 
-![Framer motion animation demo](/framer_motion.gif)
+![Framer motion animation demo](https://i.ibb.co/LJNFkWT/framer-motion.gif)
 
 ###[DayJS](https://github.com/devshawn/react-dayjs/blob/master/DOCUMENTATION.md#quick-start)
 
