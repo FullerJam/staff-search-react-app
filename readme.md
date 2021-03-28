@@ -32,5 +32,5 @@ Below is animated example of the affect achieved.
 
 A very performant alternative to Moment.js for date formating
 
-###[Styled Components]()
-An excellent styling solution for component driven development, providing localised & global themes
+###[Styled Components](https://styled-components.com/)
+An excellent styling solution for component driven development, providing localised & global themes that can be adapted based on props.
