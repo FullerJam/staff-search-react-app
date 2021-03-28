@@ -57,6 +57,7 @@ const CONFIG = {
             poll: 1000
         }
     }
+    
 };
 
 module.exports = merge(BASE_CONFIG, CONFIG);

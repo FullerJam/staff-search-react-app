@@ -2,7 +2,7 @@ import { useEffect, useState, } from "react";
 
 function useRandomUser() {
     const [loading, setLoading] = useState(true);
-    const [errors, setErrors] = useState("");
+    const [errors, setErrors] = useState([]);
     const [users, setUsers] = useState([]);
 
     useEffect(() => {

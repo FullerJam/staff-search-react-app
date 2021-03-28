@@ -1,4 +1,5 @@
 const aliases = require("./aliases");
+const multi = require('multi-loader');
 
 const CONFIG = {
   node: {
@@ -31,6 +32,7 @@ const CONFIG = {
           },
         ],
       },
+      
     ],
   },
   resolve: {

@@ -1,6 +1,6 @@
 # Staff search react application
 
-![Staff search desktop image preview](./public/images/staff_capture.PNG)
+![Staff search desktop image preview](./public/images/staff_capture.webp)
 
 A mock staff search set of components built using hooks and the random user api [randomuser.me](https://randomuser.me/) to supply mock data. 
 

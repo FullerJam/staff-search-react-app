@@ -16,30 +16,36 @@ function Search() {
   const users = useContext(UserContext);
 
   const [userInput, setUserInput] = useState("");
-  const [userFeedback, setUserFeedback] = useState(false);
+  const [userFeedback, setUserFeedback] = useState(false); // boolean: error handling if not results are return
   const [userResults, setUserResults] = useState([]);
-  let filteredArray = [];
+  let filteredArray = []; // empty array declared for users search function
 
+  /**
+   * 
+   */
   const filterUsers = () => {
     setUserFeedback(false);
-    filteredArray = users.filter((user) => {
-      const fullName = `${user.name.first} ${user.name.last}`;
-      return fullName.toLowerCase().includes(userInput.toLowerCase());
+    filteredArray = users.filter((user) => { // filter array 
+      const fullName = `${user.name.first} ${user.name.last}`; //create a users full name by combining first name & last name key
+      return fullName.toLowerCase().includes(userInput.toLowerCase()); //return the full names that match the users input text 
     });
 
-    if (filteredArray.length > 0) {
-      setUserResults(filteredArray);
-    } else {
-      setUserFeedback(true);
-      setUserResults(users);
+    if (filteredArray.length > 0) { // if array has been poplated 
+      setUserResults(filteredArray); // set useState array userResults to the filtered array 
+    } else { // just pull in user array of objects  
+      setUserFeedback(true); // provide feedback to user
+      setUserResults(users); // return the full list of users
     }
   };
 
+/**
+ * 
+ */
   useEffect(() => {
     if (users) {
       setUserResults(users);
     }
-  }, [users]);
+  }, [users]); // if users changes re-render vDOM
 
   return (
     <React.Fragment>
@@ -50,13 +56,14 @@ function Search() {
             <p>Use the search box to get started</p>
             <StyledInputWrapper>
               <StyledInput
-                onChange={(e) => setUserInput(e.target.value)}
-                onKeyPress={(e) => {if (e.key == "Enter") {filterUsers();}}}
+                onChange={(e) => setUserInput(e.target.value)} // update input useState
+                onKeyPress={(e) => {if (e.key == "Enter") {filterUsers();}}} //if key press is enter filter the users array
                 aria-label="Search for a member of staff"
               />
               <Button onClick={() => filterUsers()} aria-label="Search"></Button>
             </StyledInputWrapper>
-            {userFeedback && <p>Your search returned no results</p>}
+            
+            {userFeedback && <p>Your search returned no results</p>/*if userFeedback is true resolve <p> */} 
           </StyledSearchWrapper>
         </StyledBackground>
       </header>

@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-// import theme from "../../config/theme";
+import theme from "../../config/globalStyle";
 import bgImg from "../../../../public/images/background.jpg";
 import searchIcon from "../../../../public/icons/search.png";
 
@@ -70,9 +70,7 @@ select:focus {
   max-width: 380px;
   padding:0 25px;
 }
-
 `;
-
 export const StyledInputWrapper = styled.div`
 display:flex;
 justify-content:center;

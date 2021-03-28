@@ -1,12 +1,12 @@
 import styled from "styled-components";
-// import theme from "../../config/theme"; // couldnt use in exported styles, receiving undefined
+import theme from "../../config/globalStyle"; // couldnt use in exported styles, receiving undefined
 import circleArrowIcon from "../../../../public/icons/circle-arrow.png";
 
 export const StyledWrapper = styled.div`
   width: 100%;
   display: flex;
   justify-content: center;
-  margin-top: 20px;
+  margin: 20px 0 20px 0;
 `;
 
 export const StyledUsersWrapper = styled.div`
@@ -47,7 +47,7 @@ export const StyledAvatarBorder2 = styled.img`
 `;
 
 export const StyledError = styled.p`
-  color: red;
+  color: ${({ theme }) => theme.colors.deepRed};
   font-weight: bold;
   font-size: 25px;
 `;
@@ -71,7 +71,6 @@ export const StyledUserInfoWrapper = styled.div`
   @media (max-width: 400px) {
     display: block;
     div:nth-of-type(2) {
-      
       p{
         margin:0px;
       }
@@ -79,6 +78,9 @@ export const StyledUserInfoWrapper = styled.div`
   }
 `;
 
+/**
+ * Modal styles
+ */
 export const modalContentStyle = {
   content: {
     padding: "0px",
