@@ -1,8 +1,8 @@
 import React, { useEffect, useState, useContext } from "react";
 import PropTypes from "prop-types";
 import Users from "../Users/Users";
-import UserContext from "../../config/userContext";
-import ErrorContext from "../../config/userContext";
+import UserContext from "../../config/user.Context";
+import ErrorContext from "../../config/error.Context";
 import {
   Button,
   StyledBackground,
@@ -21,7 +21,7 @@ function Search() {
   let filteredArray = []; // empty array declared for users search function
 
   /**
-   * 
+   * Search input functionality
    */
   const filterUsers = () => {
     setUserFeedback(false);
@@ -30,22 +30,19 @@ function Search() {
       return fullName.toLowerCase().includes(userInput.toLowerCase()); //return the full names that match the users input text 
     });
 
-    if (filteredArray.length > 0) { // if array has been poplated 
-      setUserResults(filteredArray); // set useState array userResults to the filtered array 
-    } else { // just pull in user array of objects  
+    if (filteredArray.length > 0) { // if array has been populated 
+      setUserResults(filteredArray); // set useState array "userResults" to the filtered array 
+    } else { // else just pull in original user array
       setUserFeedback(true); // provide feedback to user
       setUserResults(users); // return the full list of users
     }
   };
 
-/**
- * 
- */
   useEffect(() => {
     if (users) {
       setUserResults(users);
     }
-  }, [users]); // if users changes re-render vDOM
+  }, [users]); // if users array changes re-render vDOM
 
   return (
     <React.Fragment>

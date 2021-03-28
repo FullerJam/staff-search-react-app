@@ -7,7 +7,7 @@ function UserTile(props) {
 
   return (
     <React.Fragment>
-      <Tile>{children}</Tile>
+      <Button>{children}</Button>
     </React.Fragment>
   );
 }

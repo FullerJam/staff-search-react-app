@@ -4,9 +4,9 @@ import Router from "Routing/Router";
 /**
  * Contexts - for sharing data around
  */
-import UserContext from "./config/userContext";
-import ErrorContext from "./config/ErrorContext";
-import LoaderContext from "./config/LoaderContext";
+import UserContext from "./config/user.Context";
+import ErrorContext from "./config/error.Context";
+import LoaderContext from "./config/loader.Context";
 /**
  * Theme Provider
  */
