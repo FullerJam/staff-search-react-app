@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import theme from "../../config/globalStyle"; // couldnt use in exported styles, receiving undefined
 import circleArrowIcon from "../../../../public/icons/circle-arrow.png";
 
 export const StyledWrapper = styled.div`
@@ -83,6 +82,7 @@ export const StyledUserInfoWrapper = styled.div`
  */
 export const modalContentStyle = {
   content: {
+    position:"relative",
     padding: "0px",
     display: "flex",
     alignItems: "center",
@@ -96,6 +96,7 @@ export const modalContentStyle = {
     left: "20px",
     right: "20px",
     bottom: "20px",
+    height:"95vh",
   },
   overlay: {
     backgroundColor: "rgba(0, 0, 0, 0.3)",
@@ -121,6 +122,9 @@ export const StyledList = styled.ul`
   img {
     height: 20px;
     padding: 10px;
+  }
+  div img:first-of-type{
+    padding-bottom:0;
   }
   @media (max-width: 768px) {
     justify-content: center;

@@ -39,9 +39,7 @@ function Search() {
   };
 
   useEffect(() => {
-    if (users) {
-      setUserResults(users);
-    }
+    users && setUserResults(users);
   }, [users]); // if users array changes re-render vDOM
 
   return (

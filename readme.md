@@ -1,6 +1,6 @@
 # Staff search react application
 
-![Staff search desktop image preview](./public/images/staff_capture.webp)
+![Staff search desktop image preview](/staff_capture.webp)
 
 A mock staff search set of components built using hooks and the random user api [randomuser.me](https://randomuser.me/) to supply mock data. 
 
@@ -26,4 +26,4 @@ An animation library for react with unlimited potential, I've used this for simp
 Below is animated example of the affect achieved.
 
 
-![Framer motion animation demo](./public/images/framer_motion.gif)
+![Framer motion animation demo](/framer_motion.gif)

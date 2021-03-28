@@ -1,16 +1,18 @@
 import React from "react";
 import { Tile } from "./UserTile.styled";
 
+import { motion } from "framer-motion";
 
 function UserTile(props) {
   const { children } = props;
 
   return (
     <React.Fragment>
-      <Tile>{children}</Tile>
+      <motion.div whileHover={{ scale: 1.02 }}>
+        <Tile>{children}</Tile>
+      </motion.div>
     </React.Fragment>
   );
 }
-
 
 export default UserTile;
