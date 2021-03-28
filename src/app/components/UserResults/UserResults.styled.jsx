@@ -16,7 +16,7 @@ export const StyledUsersWrapper = styled.div`
   max-width: 800px;
   width: 100%;
   @media (max-width: 680px) {
-    padding:25px;
+    padding: 25px;
   }
 `;
 
@@ -27,10 +27,9 @@ export const Button = styled.button`
   border: 0;
   height: 50px;
   width: 49px;
-  padding-right:38px;
-  &:hover {
-    cursor: pointer;
-  }
+  padding-right: 38px;
+  outline: none;
+  cursor: pointer;
 `;
 
 export const StyledAvatarBorder = styled.img`
@@ -70,8 +69,8 @@ export const StyledUserInfoWrapper = styled.div`
   @media (max-width: 400px) {
     display: block;
     div:nth-of-type(2) {
-      p{
-        margin:0px;
+      p {
+        margin: 0px;
       }
     }
   }
@@ -82,7 +81,8 @@ export const StyledUserInfoWrapper = styled.div`
  */
 export const modalContentStyle = {
   content: {
-    position:"relative",
+    inset:"20px 20px 20px 0px",
+    position: "relative",
     padding: "0px",
     display: "flex",
     alignItems: "center",
@@ -96,11 +96,12 @@ export const modalContentStyle = {
     left: "20px",
     right: "20px",
     bottom: "20px",
-    height:"95vh",
+    height: "95vh",
   },
   overlay: {
     backgroundColor: "rgba(0, 0, 0, 0.3)",
     overflowX: "hidden",
+    padding:"0 20px"
   },
 };
 
@@ -123,8 +124,8 @@ export const StyledList = styled.ul`
     height: 20px;
     padding: 10px;
   }
-  div img:first-of-type{
-    padding-bottom:0;
+  div img:first-of-type {
+    padding-bottom: 0;
   }
   @media (max-width: 768px) {
     justify-content: center;

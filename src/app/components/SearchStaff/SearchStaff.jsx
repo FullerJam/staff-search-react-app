@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useContext } from "react";
 import PropTypes from "prop-types";
-import Users from "../Users/Users";
+import Users from "../UserResults/UserResults";
 import UserContext from "../../config/user.Context";
 import ErrorContext from "../../config/error.Context";
 import {

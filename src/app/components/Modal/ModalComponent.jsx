@@ -9,11 +9,12 @@ if (process.env.NODE_ENV !== "test") {
 function ModalComponent(props) {
   const { children, isOpen, onRequestClose, style } = props;
   return (
-    <motion.div animate={{ scale: 2 }}
-    transition={{ duration: 0.5 }}>
-      <Modal style={style} isOpen={isOpen} onRequestClose={onRequestClose}>
-        {children}
-      </Modal>
+    <motion.div animate={{ scale: 2 }} transition={{ duration: 0.5 }}>
+
+        <Modal style={style} isOpen={isOpen} onRequestClose={onRequestClose}>
+          {children}
+        </Modal>
+  
     </motion.div>
   );
 }

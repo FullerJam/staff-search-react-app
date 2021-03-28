@@ -3,11 +3,11 @@ import { StyledCloseButton } from "./CloseButton.styled";
 
 
 function CloseButton(props) {
-  const { ariaLabel } = props;
+  const { ariaLabel, ...rest } = props;
 
   return (
     <React.Fragment>
-      <StyledCloseButton aria-label={ariaLabel}>✕</StyledCloseButton>
+      <StyledCloseButton aria-label={ariaLabel} {...rest} >✕</StyledCloseButton>
     </React.Fragment>
   );
 }

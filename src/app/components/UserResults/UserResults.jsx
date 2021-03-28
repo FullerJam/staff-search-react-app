@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import DayJS from "react-dayjs";
 import ModalComponent from "../Modal/ModalComponent";
 import PropTypes from "prop-types";
 import UserTile from "../UserTile/UserTile";
@@ -17,7 +18,7 @@ import {
   StyledUserInfoWrapper,
   StyledList,
   modalContentStyle,
-} from "./Users.styled";
+} from "./UserResults.styled";
 
 function Users(props) {
   const [selectedUser, setSelectedUser] = useState([]);
@@ -34,12 +35,17 @@ function Users(props) {
   return (
     <React.Fragment>
       {error && <StyledError>{error.message}</StyledError>}
+
       <ModalComponent
         isOpen={modalIsOpen}
         onRequestClose={() => setModalIsOpen(false)}
         style={modalContentStyle}
+        className="Modal"
       >
-        <CloseButton ariaLabel={"close"} onClick={() => setModalIsOpen(false)} />
+        <CloseButton
+          ariaLabel={"close"}
+          onClick={() => setModalIsOpen(false)}
+        />
         <StyledAvatarBorder2
           src={modalIsOpen ? selectedUser.picture.large : undefined} // replaced with ternary operator as && was throwing error when closing modal as src set to "false"
           alt="large_user_avatar"
@@ -57,7 +63,9 @@ function Users(props) {
           </li>
           <li>
             <img src={icon2} alt="Birthday Icon" />
-            <p>{dobObject.date}</p>
+            <p>
+              <DayJS format="MM-DD-YYYY">{dobObject.date}</DayJS>
+            </p>
           </li>
           <li>
             <img src={icon3} alt="Phone Icon" />
@@ -68,7 +76,7 @@ function Users(props) {
       <StyledWrapper>
         <StyledUsersWrapper>
           {users.map((user, index) => (
-
+            //map out all the results from either filtered array or just the users array
             <div key={index} onClick={() => openModal(user)}>
               <UserTile>
                 <StyledUserInfoWrapper>
@@ -93,7 +101,6 @@ function Users(props) {
                 />
               </UserTile>
             </div>
-
           ))}
         </StyledUsersWrapper>
       </StyledWrapper>

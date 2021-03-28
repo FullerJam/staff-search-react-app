@@ -4,7 +4,7 @@
 
 A mock staff search set of components built using hooks and the random user api [randomuser.me](https://randomuser.me/) to supply mock data. 
 
-Demo hosted [here](https://priceless-lamarr-9fe25e.netlify.app/)
+Demo hosted [here](https://elastic-fermi-f5147b.netlify.app/)
 
 **Functional description**
 
@@ -15,15 +15,22 @@ Demo hosted [here](https://priceless-lamarr-9fe25e.netlify.app/)
 
 #Packages 
 
+###[React Loader Spinner](https://www.npmjs.com/package/react-loader-spinner)
+Provides a selection of buffer animation components whilst the application loads
 
 ###[React-Modal](https://reactcommunity.org/react-modal/) 
-was used to display further user information once an individual user had been selected
+This used to display further user information once an individual user had been selected, it also includes support for screen readers once configured.
 
 ###[Framer motion](https://www.framer.com/motion/)
 
-An animation library for react with unlimited potential, I've used this for simple hover effects within the User component on each tile. In future when I have time I'd like to experiment further with whats possible with this library.
-
+An animation library for react with unlimited potential, I've used this for simple hover effects within the User component on each tile.
 Below is animated example of the affect achieved.
 
-
 ![Framer motion animation demo](/framer_motion.gif)
+
+###[DayJS](https://github.com/devshawn/react-dayjs/blob/master/DOCUMENTATION.md#quick-start)
+
+A very performant alternative to Moment.js for date formating
+
+###[Styled Components]()
+An excellent styling solution for component driven development, providing localised & global themes
