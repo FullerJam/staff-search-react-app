@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import circleArrowIcon from "../../../../public/icons/circle-arrow.png";
 
+
 export const StyledWrapper = styled.div`
   width: 100%;
   display: flex;

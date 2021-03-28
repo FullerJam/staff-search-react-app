@@ -9,6 +9,7 @@ import {
   StyledSearchWrapper,
   StyledInputWrapper,
   StyledInput,
+  StyledOverlay,
 } from "./SearchStaff.styled";
 
 function Search() {
@@ -25,14 +26,17 @@ function Search() {
    */
   const filterUsers = () => {
     setUserFeedback(false);
-    filteredArray = users.filter((user) => { // filter array 
+    filteredArray = users.filter((user) => {
+      // filter array
       const fullName = `${user.name.first} ${user.name.last}`; //create a users full name by combining first name & last name key
-      return fullName.toLowerCase().includes(userInput.toLowerCase()); //return the full names that match the users input text 
+      return fullName.toLowerCase().includes(userInput.toLowerCase()); //return the full names that match the users input text
     });
 
-    if (filteredArray.length > 0) { // if array has been populated 
-      setUserResults(filteredArray); // set useState array "userResults" to the filtered array 
-    } else { // else just pull in original user array
+    if (filteredArray.length > 0) {
+      // if array has been populated
+      setUserResults(filteredArray); // set useState array "userResults" to the filtered array
+    } else {
+      // else just pull in original user array
       setUserFeedback(true); // provide feedback to user
       setUserResults(users); // return the full list of users
     }
@@ -46,20 +50,33 @@ function Search() {
     <React.Fragment>
       <header>
         <StyledBackground>
-          <StyledSearchWrapper>
-            <h1>Find a member of staff</h1>
-            <p>Use the search box to get started</p>
-            <StyledInputWrapper>
-              <StyledInput
-                onChange={(e) => setUserInput(e.target.value)} // update input useState
-                onKeyPress={(e) => {if (e.key == "Enter") {filterUsers();}}} //if key press is enter filter the users array
-                aria-label="Search for a member of staff"
-              />
-              <Button onClick={() => filterUsers()} aria-label="Search"></Button>
-            </StyledInputWrapper>
-            
-            {userFeedback && <p>Your search returned no results</p>/*if userFeedback is true resolve <p> */} 
-          </StyledSearchWrapper>
+          <StyledOverlay>
+            <StyledSearchWrapper>
+              <h1>Find a member of staff</h1>
+              <p>Use the search box to get started</p>
+              <StyledInputWrapper>
+                <StyledInput
+                  onChange={(e) => setUserInput(e.target.value)} // update input useState
+                  onKeyPress={(e) => {
+                    if (e.key == "Enter") {
+                      filterUsers();
+                    }
+                  }} //if key press is enter filter the users array
+                  aria-label="Search for a member of staff"
+                />
+                <Button
+                  onClick={() => filterUsers()}
+                  aria-label="Search"
+                ></Button>
+              </StyledInputWrapper>
+
+              {
+                userFeedback && (
+                  <p>Your search returned no results</p>
+                ) /*if userFeedback is true resolve <p> */
+              }
+            </StyledSearchWrapper>
+          </StyledOverlay>
         </StyledBackground>
       </header>
       <main>

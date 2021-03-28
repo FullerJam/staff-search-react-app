@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { motion, useViewportScroll } from "framer-motion"
 import DayJS from "react-dayjs";
 import ModalComponent from "../Modal/ModalComponent";
 import PropTypes from "prop-types";

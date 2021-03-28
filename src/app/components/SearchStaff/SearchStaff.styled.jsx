@@ -25,12 +25,10 @@ export const Button = styled.button`
 export const StyledBackground = styled.div`
 background-image: url(${bgImg});
 background-repeat: no-repeat;
-background-position: center center;
+background-position: 50% 1%;
 background-size:cover;
 width: 100%;
 height: 50vh;
-display: flex;
-justify-content: center;
 @media (max-width: 580px) {
   height: 40vh;
   h1 {
@@ -43,6 +41,14 @@ justify-content: center;
     font-size: 35px !important;
   }
 }
+`;
+
+export const StyledOverlay = styled.div `
+display: flex;
+justify-content: center;
+background-color:rgba(0, 0, 0, 0.5);
+width:100%;
+height:100%;
 `;
 
 export const StyledSearchWrapper = styled.div`
