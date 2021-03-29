@@ -1,14 +1,16 @@
 import React, { useState } from "react";
-import { motion, useViewportScroll } from "framer-motion"
-import DayJS from "react-dayjs";
+import DayJS from "react-dayjs"; // date formatting
 import ModalComponent from "../Modal/ModalComponent";
 import PropTypes from "prop-types";
+//components
 import UserTile from "../UserTile/UserTile";
 import CloseButton from "../CloseButton/CloseButton";
+//image assets
 import avatarPlaceholder from "../../../../public/icons/avatar_placeholder.png";
 import icon1 from "../../../../public/icons/email.png";
 import icon2 from "../../../../public/icons/dob.png";
 import icon3 from "../../../../public/icons/phone.png";
+
 import {
   Button,
   StyledUsersWrapper,
@@ -21,7 +23,7 @@ import {
   modalContentStyle,
 } from "./UserResults.styled";
 
-function Users(props) {
+const Users = (props) => {
   const [selectedUser, setSelectedUser] = useState([]);
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [dobObject, setDobObject] = useState({});
@@ -37,13 +39,13 @@ function Users(props) {
     <React.Fragment>
       {error && <StyledError>{error.message}</StyledError>}
 
-      <ModalComponent
+      <ModalComponent // pass down values to react-modal
         isOpen={modalIsOpen}
         onRequestClose={() => setModalIsOpen(false)}
         style={modalContentStyle}
         className="Modal"
       >
-        <CloseButton
+        <CloseButton // for usability
           ariaLabel={"close"}
           onClick={() => setModalIsOpen(false)}
         />

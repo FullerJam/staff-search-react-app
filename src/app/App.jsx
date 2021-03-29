@@ -7,17 +7,18 @@ import Router from "Routing/Router";
 import UserContext from "./config/user.Context";
 import ErrorContext from "./config/error.Context";
 import LoaderContext from "./config/loader.Context";
-/**
- * Theme Provider
- */
-import theme from "./config/globalStyle.js";
 import { ThemeProvider } from "styled-components";
+/**
+ * Global Theme
+ */
+import theme from "./config/theme.js";
 
-import useRandomuser from "./services/useRandomUser";
+//custom hook
+import useRandomUser from "./services/useRandomUser";
 
 import Loader from "./components/Loader/Loader";
 const AppRoot = () => {
-  const { errors, users, loading } = useRandomuser();
+  const { errors, users, loading } = useRandomUser();
 
   if (loading) {
     return <Loader />;

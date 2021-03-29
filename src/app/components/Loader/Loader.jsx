@@ -9,8 +9,6 @@ const StyledWrapper = styled.div`
     justify-content:center;
     align-items:center;
 `
-
-
 export default class App extends React.Component {
     render() {
         return (

@@ -2,7 +2,7 @@ import React from "react";
 import { StyledCloseButton } from "./CloseButton.styled";
 
 
-function CloseButton(props) {
+const CloseButton = (props) => {
   const { ariaLabel, ...rest } = props;
 
   return (

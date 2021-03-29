@@ -36,4 +36,5 @@ A very performant alternative to Moment.js for date formating
 An excellent styling solution for component driven development, providing localised & global themes that can be adapted based on props.
 
 ![Google Lighthouse report preview](https://i.ibb.co/QK8rJGg/Lighthouse-report.png)
+
 [Full Lighthouse report here](https://drive.google.com/file/d/1zq5-QX4Rea_m8nqfLkn8SIpWmKpW6nAk/view?usp=sharing)

@@ -1,6 +1,7 @@
 import { useEffect, useState, } from "react";
 
 function useRandomUser() {
+    //useState hooks to store data
     const [loading, setLoading] = useState(true);
     const [errors, setErrors] = useState([]);
     const [users, setUsers] = useState([]);
@@ -13,12 +14,12 @@ function useRandomUser() {
                 );
                 const data = await response.json(); // call api and await response
                 setLoading(false); // Loader set to false
-                setUsers(data.results); // populate useState with array of objects
+                setUsers(data.results); // populate users const with array of objects
             } catch (e) {
                 setErrors(e);
             }
         })();
-    }, []); // pass empty array as second argument to function never reruns after dom has loaded
+    }, []); // pass empty array as second argument to function, never reruns after dom has loaded
 
     return{
         loading,

@@ -3,7 +3,7 @@ import { Tile } from "./UserTile.styled";
 
 import { motion } from "framer-motion";
 
-function UserTile(props) {
+const UserTile = (props) => {
   const { children } = props;
 
   return (

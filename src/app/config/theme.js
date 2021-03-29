@@ -23,25 +23,8 @@ const theme = {
       fontSize: "1rem",
     },
   },
-  bsBreakpoint : {
-    sm:"576",
-    md:"768",
-    lg:"992",
-    xl:"1200"
-  }
 };
 
-
-/**
- * Global breakpoints
- */
-
-export const device = {
-  sm:`(min-width:${theme.bsBreakpoint.sm}px)`,
-  md:`(min-width:${theme.bsBreakpoint.md}px)`,
-  lg:`(min-width:${theme.bsBreakpoint.lg}px)`,
-  xl:`(min-width:${theme.bsBreakpoint.xl}px)`
-}
 
 export default theme
 
